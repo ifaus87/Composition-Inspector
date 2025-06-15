@@ -1,3 +1,10 @@
+// Last Edited
+// 15 Jul 2025
+
+// A light weight Composition Observer, utilizing Proxy to determine when properties of the observed object
+// have been added, changed or deleted.
+// Potential for future development of declaring what the property is, ie class, function, etc
+
 class Sprite {
   constructor() {
     this.x = null;
