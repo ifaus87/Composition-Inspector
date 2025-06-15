@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Composition Observer - Fixed</title>
+  <link href="style.css" rel="stylesheet" />
+  <script src="test.js" defer></script>
+  <script src="dependency.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Composition Observer</h1>
+      <p>Real-time object composition and dependency tracking system</p>
+    </header>
+
+    <div class="dashboard">
+      <div class="panel">
+        <h2 class="title">Controls</h2>
+
+          <button class="btn" onclick="testNestedChanges()">
+            <span class="btn-icon">🔗</span>
+            <div class="btn-label">
+              Register Component
+              <span class="btn-description">Add Position dependency</span>
+            </div>
+          </button>
+
+        <div class="button-group">
+          <button class="btn" onclick="testPositionSet()">
+            <span class="btn-icon">🎯</span>
+            <div class="btn-label">
+              Set Position
+              <span class="btn-description">Call position.set(x, y) method</span>
+            </div>
+          </button>
+          
+          <button class="btn" onclick="clearLog()">
+            <span class="btn-icon">🗑️</span>
+            <div class="btn-label">
+              Clear Log
+              <span class="btn-description">Reset the visualization</span>
+            </div>
+          </button>
+        </div>
+        <div id="explanation">
+          <h2 class="title">Explanation</h2>
+          <div id="exp-log">The composition-observer.js code enables real-time tracking and visualization of JavaScript object changes. It wraps objects in a Proxy to intercept property operations, with recursive observation for nested objects. Changes trigger optional callbacks and schedule efficient UI updates via requestAnimationFrame. Optional Web Worker support enhances performance for complex objects, rendering the object hierarchy in a DOM element for debugging or showcasing dynamic data structures.</div>
+        </div>
+      </div>
+
+      <div class="output-panel">
+        <div class="output-header">
+          <h3 class="output-title">Object Tree Visualization</h3>
+          <div class="status-indicator"></div>
+        </div>
+        <div id="event-log"></div>
+      </div>
+    </div>
+  </div>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+</body>
+</html>
